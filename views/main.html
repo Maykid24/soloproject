@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="scripts/script.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="vendors/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+    <title>Main Page</title>
+  </head>
+  <body>
+    <div ng-controller="competitorOverall">
+    <input type="text" ng-model="dateIn" name="dateIn" value="" placeholder="Date MM/DD/YR"><br>
+    <input type="text" ng-model="locationIn" name="locationIn" value="" placeholder="Location (City)"><br>
+    <input type="text" ng-model="stateIn" name="stateIn" value="" placeholder="State"><br>
+    <br>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Class</th>
+          <th>200Y Standing</th>
+          <th>X</th>
+          <th>200Y Sitting</th>
+          <th>X</th>
+          <th>300Y Prone</th>
+          <th>X</th>
+          <th>600Y Prone</th>
+          <th>X</th>
+        </tr>
+      </table>
+      <fieldset id="{{'competitors-'+ $index}}" ng-repeat='competitor in competitors'>
+        <input type="text" ng-model="competitor.nameIn" name="nameIn" value="" placeholder="Competitors Name">
+        <input type="text" ng-model="competitor.classIn" name="classIn" value="" placeholder="Classification">
+        <input type="text" ng-model="competitor.twoStanding" name="twoStanding" value="" placeholder="200Y Standing">
+        <input type="text" ng-model="competitor.twoXS" name="name" value="" placeholder="200Y Standing X">
+        <input type="text" ng-model="competitor.twoSitting" name="twoSitting" value="" placeholder="200Y Sitting">
+        <input type="text" ng-model="competitor.twoXs" name="name" value="" placeholder="200Y Sitting X">
+        <input type="text" ng-model="competitor.threeProne" name="threeProne" value="" placeholder="300Y Prone">
+        <input type="text" ng-model="competitor.threeX" name="name" value="" placeholder="300Y Prone X">
+        <input type="text" ng-model="competitor.sixProne" name="sixProne" value="" placeholder="600Y Prone">
+        <input type="text" ng-model="competitor.sixX" name="name" value="" placeholder="600Y Prone X">
+        <button class="remove" type="button" name="removeButton" ng-show="$last" ng-click="removeComp()">-</button>
+      </fieldset>
+
+      {{competitors}}
+
+      <button type="button" ng-click="addCompetitor()" name="addCompetitor">Add Competitor</button><br>
+      <button type="button" ng-click="complete()" name="completeButton">Complete</button>
+      </div>
+  </body>
+</html>
