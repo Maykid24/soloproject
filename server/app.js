@@ -20,7 +20,7 @@ var ourSchema = new  mongoose.Schema({
   threeProne: Number,
   threeX: Number,
   sixProne: Number,
-  sixX: Number
+  sixX: Number,
 });
 var ourOTC = mongoose.model( 'ourOTC', ourSchema );
 
@@ -40,8 +40,11 @@ app.get('/final', function (req, res) {
   res.sendFile(path.join(__dirname, '../views/', 'final.html'));
 });//End of final function
 
-app.get('/getCompetitors', function (req, res) {
-  ourOTC.find()
+app.post('/getCompetitors', function (req, res) {
+  ourOTC.find(function (err, competitiveEvent) {
+    console.log('Found competitiveEvent'+competitiveEvent);
+  })
+  .where('date').equals(''+req.body.date)
   .then(function (data) {
     res.send(data);
   });//end of then function
@@ -49,7 +52,8 @@ app.get('/getCompetitors', function (req, res) {
 
 app.post('/compPost', function (req, res) {
   // console.log(req.body.competitors);
-  console.log(req.body.date);
+  console.log('inside /compPost req.body::',req.body);
+  console.log('inside /compPost req.body.date::',req.body.date);
   console.log(req.body.location);
   console.log(req.body.state);
   //for loop going through all competitors
@@ -74,9 +78,17 @@ app.post('/compPost', function (req, res) {
      };
      // Saves the data to the database
      var newComp=ourOTC( competitorToAdd );
-     newComp.save();
+     newComp.save(function (err) {
+       ourOTC.find(function (err, competitiveEvent) {
+         console.log('Found competitiveEvent', competitiveEvent);
+         res.send(competitiveEvent);
+       })
+       .where('date').equals(''+req.body.date)
+       .then(function (data) {
+         console.log('Getting all the data for req.body.date', data);
+       });//end of then function
+     });
   }//end of for loop
-  res.send( req.body.competitors );
 });//End of compPost
 
 

@@ -4,12 +4,13 @@
     <meta charset="utf-8">
     <script src="vendors/angular.min.js" charset="utf-8"></script>
     <script src="scripts/script.js" charset="utf-8"></script>
+    <script src="scripts/factories.js" charset="utf-8"></script>
     <link rel="stylesheet" href="vendors/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
     <title>Main Page</title>
   </head>
   <body>
     <div ng-controller="competitorOverall">
-    <input type="text" ng-model="dateIn" name="dateIn" value="" placeholder="Date MM/DD/YR"><br>
+    <input type="text" ng-model="dateIn" name="dateIn"><br>{{dateIn}}
     <input type="text" ng-model="locationIn" name="locationIn" value="" placeholder="Location (City)"><br>
     <input type="text" ng-model="stateIn" name="stateIn" value="" placeholder="State"><br>
     <br>
@@ -41,10 +42,63 @@
         <button class="remove" type="button" name="removeButton" ng-show="$last" ng-click="removeComp()">-</button>
       </fieldset>
 
-      {{competitors}}
-
       <button type="button" ng-click="addCompetitor()" name="addCompetitor">Add Competitor</button><br>
-      <button type="button" ng-click="complete()" name="completeButton">Complete</button>
+      <button type="button" ng-click="complete(competitors, dateIn, locationIn, stateIn)" name="completeButton">Complete</button>
+
+      <form>
+        <input type="text" ng-model="compDay.date" name="compDay">
+        <button ng-click="getCompetitionResults(compDay)">Get Competition</button>
+      </form>
+
+      </div>
+
+
+
+      <div ng-controller="competitorOverall">
+      <table>
+        <tr ng-repeat="all in allTheComp.comps">
+          <th scope="row">Date:</th>
+          <td>{{all.date}}</td>
+        </tr>
+        <tr ng-repeat="all in allTheComp.comps">
+          <th scope="row">Location:</th>
+          <td>{{all.location}}</td>
+        </tr>
+        <tr ng-repeat="all in allTheComp.comps">
+          <th scope="row">State:</th>
+          <td>{{all.state}}</td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Class</th>
+          <th>200Y Standing</th>
+          <th>X</th>
+          <th>200Y Sitting</th>
+          <th>X</th>
+          <th>300Y Prone</th>
+          <th>X</th>
+          <th>600Y Prone</th>
+          <th>X</th>
+          <th>Total</th>
+          <th>Total X</th>
+        </tr>
+        <tr ng-repeat="all in allTheComp.comps | limitTo: $index">
+          <td>{{all.nameIn}}</td>
+          <td>{{all.classIn}}</td>
+          <td>{{all.twoStanding}}</td>
+          <td>{{all.twoXS}}</td>
+          <td>{{all.twoSitting}}</td>
+          <td>{{all.twoXs}}</td>
+          <td>{{all.threeProne}}</td>
+          <td>{{all.threeX}}</td>
+          <td>{{all.sixProne}}</td>
+          <td>{{all.sixX}}</td>
+          <td>{{all.total}}</td>
+          <td>{{all.totalX}}</td>
+        </tr>
+      </table>
       </div>
   </body>
 </html>

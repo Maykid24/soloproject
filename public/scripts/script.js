@@ -1,8 +1,8 @@
 var myApp=angular.module( 'myApp', [] );
 
-myApp.controller('competitorOverall', ['$scope', '$http', '$location', '$window', function ($scope, $http, $location, $window) {
+myApp.controller('competitorOverall', ['$scope', '$http', '$location', '$window', 'FinalFactory', function ($scope, $http, $location, $window, FinalFactory) {
+var finalFactory = FinalFactory;
 
-// $scope.competitors = [{id: 'new1'}, {id: 'new2'}];
 $scope.competitors = [];
 
 var Competitor = function () {
@@ -17,10 +17,15 @@ var Competitor = function () {
   threeX= '';
   sixY= '';
   sixX= '';
+
 };
 
   $scope.addCompetitor = function () {
     event.preventDefault();
+    $scope.competitors.total = Number($scope.twoY) + Number($scope.twoy) + Number($scope.threeY) + Number($scope.sixY);
+    $scope.competitors.totalX = Number($scope.twoX) + Number($scope.twox) + Number($scope.threeX) + Number($scope.sixX);
+    console.log('total', $scope.competitors.total);
+    console.log('total X', $scope.competitors.totalX);
     $scope.competitors.push(new Competitor());
   };//end of add Competitor function
 
@@ -38,27 +43,18 @@ var Competitor = function () {
       location: $scope.locationIn,
       state: $scope.stateIn
     };
+    finalFactory.getCompPost(dataToSend);
 
-    $http({
-      method: 'POST',
-      url: '/compPost',
-      data: dataToSend
-    }).then(function(){
-      $window.location.href ='/final';
-    });//End of http Post
     console.log(dataToSend);
   };//End of complete function
 
-  $scope.getCompetitors = function () {
-    $http({
-      method: 'GET',
-      url: '/getCompetitors',
-    }).then(function (response) {
-      /// - Un comment when writing to the database
-      $scope.allTheComp = response.data;
-      console.log('scope allTheComp ' + $scope.allTheComp);
-    });//end of http call
-  };//end of get competitor function
 
-  $scope.getCompetitors();
+  $scope.getCompetitionResults = function(compDay){
+    console.log('compDay', compDay);
+    finalFactory.getCompetitors(compDay);
+  };
+  $scope.allTheCompSelected = finalFactory.allCompForSelectedDate;
+
+  $scope.allTheComp = finalFactory.allCompForDay;
+  console.log('in controller finalFactory.allCompForDay', finalFactory.allCompForDay);
 }]);//End of myApp controller
