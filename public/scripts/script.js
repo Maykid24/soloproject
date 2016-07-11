@@ -4,6 +4,8 @@ myApp.controller('competitorOverall', ['$scope', '$http', '$location', '$window'
 var finalFactory = FinalFactory;
 
 $scope.competitors = [];
+$scope.topHalf = true;
+$scope.bottomHalf = false;
 
 var Competitor = function () {
 
@@ -22,10 +24,6 @@ var Competitor = function () {
 
   $scope.addCompetitor = function () {
     event.preventDefault();
-    $scope.competitors.total = Number($scope.twoY) + Number($scope.twoy) + Number($scope.threeY) + Number($scope.sixY);
-    $scope.competitors.totalX = Number($scope.twoX) + Number($scope.twox) + Number($scope.threeX) + Number($scope.sixX);
-    console.log('total', $scope.competitors.total);
-    console.log('total X', $scope.competitors.totalX);
     $scope.competitors.push(new Competitor());
   };//end of add Competitor function
 
@@ -35,6 +33,8 @@ var Competitor = function () {
   };//end of remove competitors
 
   $scope.complete = function () {
+    $scope.bottomHalf = !$scope.bottomHalf;
+    $scope.topHalf = !$scope.topHalf;
     event.preventDefault();
 
     var dataToSend = {
@@ -44,17 +44,29 @@ var Competitor = function () {
       state: $scope.stateIn
     };
     finalFactory.getCompPost(dataToSend);
-
     console.log(dataToSend);
+
   };//End of complete function
 
+  $scope.updateComp = function () {
+
+  };//End of update comp function
+
+  // / -Edit function needs to be completed...
+  $scope.editCompetition = function () {
+    $scope.topHalf = !$scope.topHalf;
+    $scope.bottomHalf = !$scope.bottomHalf;
+  };//end of edit competition function
 
   $scope.getCompetitionResults = function(compDay){
     console.log('compDay', compDay);
+    $scope.bottomHalf = !$scope.bottomHalf;
+    $scope.topHalf = !$scope.topHalf;
     finalFactory.getCompetitors(compDay);
-  };
-  $scope.allTheCompSelected = finalFactory.allCompForSelectedDate;
+
+    console.log('logging out $scope.twoStanding', compDay);
+
+  };//End of get competition results function
 
   $scope.allTheComp = finalFactory.allCompForDay;
-  console.log('in controller finalFactory.allCompForDay', finalFactory.allCompForDay);
 }]);//End of myApp controller
