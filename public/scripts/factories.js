@@ -2,7 +2,6 @@ myApp.factory("FinalFactory", ['$http', '$location', '$window', function ($http,
 
 
   var allCompForDay = {};
-  // var allCompForSelectedDate = {};
   var getCompPost = function (dataToSend) {
     $http.post('/compPost', dataToSend).then(function (response) {
       console.log('compPost response from server in factory: ', response);
@@ -16,7 +15,6 @@ myApp.factory("FinalFactory", ['$http', '$location', '$window', function ($http,
     });
   };
   return {
-    // allCompForSelectedDate: allCompForSelectedDate,
     allCompForDay: allCompForDay,
     getCompPost: getCompPost,
     getCompetitors: getCompetitors

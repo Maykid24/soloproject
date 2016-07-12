@@ -56,6 +56,7 @@ app.post('/compPost', function (req, res) {
   console.log('inside /compPost req.body.date::',req.body.date);
   console.log(req.body.location);
   console.log(req.body.state);
+
   //for loop going through all competitors
   for(i=0; i<req.body.competitors.length; i++){
     console.log( "saving competitor: " + req.body.competitors[i].nameIn );
@@ -77,6 +78,7 @@ app.post('/compPost', function (req, res) {
       sixX: req.body.competitors[i].sixX
      };
      // Saves the data to the database
+
      var newComp=ourOTC( competitorToAdd );
      newComp.save(function (err) {
        ourOTC.find(function (err, competitiveEvent) {
@@ -91,6 +93,27 @@ app.post('/compPost', function (req, res) {
   }//end of for loop
 });//End of compPost
 
+app.post('/compUpdate', function (req, res) {
+  console.log( 'LOOK -----------------> compUpdate req.body:', req.body );
+
+    console.log( 'req.body.foundId:', req.body.foundId );
+    console.log( 'req.body.competitors.length:', req.body.competitors.length );
+
+    for( var i=0; i< req.body.competitors.length; i++ ){
+      console.log( req.body.competitors );
+        // updateRecord( req.body.foundId, req.body.competitors[i] );
+    }
+});//end of comp Update function
+
+function updateRecord( id, competitor ){
+  ourOTC.findByIdAndUpdate( {'_id' : id }, { $set: competitor }, function (err, result) {
+    if(err){
+      console.log(err);
+    }else{
+      console.log( "RESULT " + i + ": " + result );
+    }
+  }); // end findyBy
+} // end updateRecord
 
 // spin up server
 app.listen( 8080, 'localhost', function( req, res ){

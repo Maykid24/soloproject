@@ -44,12 +44,40 @@ var Competitor = function () {
       state: $scope.stateIn
     };
     finalFactory.getCompPost(dataToSend);
-    console.log(dataToSend);
+    console.log( 'dataToSend from client: ', dataToSend);
 
   };//End of complete function
 
   $scope.updateComp = function () {
+    $scope.topHalf = !$scope.topHalf;
+    $scope.bottomHalf = !$scope.bottomHalf;
 
+    ////////////// ------------- MIGHT NEED FOR FUTURE AND MIGHT NOT BUT KEEP!!!!! --------////////////
+    //loop through factory to find competitor
+    // var nameToFind = finalFactory.allCompForDay.comps[0].nameIn;
+    // $scope.foundId = finalFactory.allCompForDay.comps[0]._id;
+    // console.log('looking for scope name:', nameToFind );
+    // for( var i=0; i< finalFactory.allCompForDay.comps.length; i++ ){
+    //   if( finalFactory.allCompForDay.comps.nameIn == $scope.nameIn ){
+    //     $scope.foundId = finalFactory.allCompForDay.comps[i]._id;
+    //   }
+    // }
+    // console.log('found ID for ' + nameToFind + ' as ' + $scope.foundId );
+
+    var updateToSend = {
+      foundId: $scope.foundId,
+      competitors: $scope.competitors,
+      date: $scope.dateIn,
+      location: $scope.locationIn,
+      state: $scope.stateIn
+    };
+
+    $http({
+      method: 'POST',
+      url: '/compUpdate',
+      data: updateToSend,
+      headers: { 'Content-Type': 'application/json' }
+    });//end of $http call
   };//End of update comp function
 
   // / -Edit function needs to be completed...

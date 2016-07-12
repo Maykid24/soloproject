@@ -11,7 +11,7 @@
   <body>
     <div ng-controller="competitorOverall">
       <div ng-show='topHalf'>
-    <input type="text" ng-model="dateIn" name="dateIn" placeholder="Date MM/DD/YRYR"><br>
+    <input type="text" ng-model="dateIn" name="dateIn" placeholder="MM/DD/YEAR"><br>
     <input type="text" ng-model="locationIn" name="locationIn" value="" placeholder="Location (City)"><br>
     <input type="text" ng-model="stateIn" name="stateIn" value="" placeholder="State"><br>
     <br>
@@ -97,6 +97,8 @@
         </tr>
       </table>
       <button ng-click="editCompetition()" name="editButton">Edit</button>
+      <a href="./"><button type="button" name="newCompButton">New Competition</button></a>
+      <button type="button" name="downloadButton">Download</button>
         </div>
       </div>
   </body>
