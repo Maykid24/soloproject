@@ -12,26 +12,29 @@
   <body>
     <div ng-controller="competitorOverall">
       <div ng-show='topHalf' class='top'>
+    <div class="container">
     <input type="text" ng-model="dateIn" name="dateIn" placeholder="MM/DD/YEAR"><br>
     <input type="text" ng-model="locationIn" name="locationIn" value="" placeholder="Location (City)"><br>
     <input type="text" ng-model="stateIn" name="stateIn" value="" placeholder="State"><br>
     <br>
+  </div>
     <div class="container">
-      <table>
+      <!-- <table>
         <tr>
-          <th>Name</th>
-          <th>Class</th>
-          <th>200Y Standing</th>
-          <th>X</th>
-          <th>200Y Sitting</th>
-          <th>X</th>
-          <th>300Y Prone</th>
-          <th>X</th>
-          <th>600Y Prone</th>
-          <th>X</th>
+          <th width="10%">Name</th>
+          <th width=10%>Class</th>
+          <th width=10%>200Y Standing</th>
+          <th width=10%>X</th>
+          <th width=10%>200Y Sitting</th>
+          <th width=10%>X</th>
+          <th width=10%>300Y Prone</th>
+          <th width=10%>X</th>
+          <th width=10%>600Y Prone</th>
+          <th width=10%>X</th>
         </tr>
-      </table>
+      </table> -->
     </div>
+    <div class="container">
       <fieldset id="{{'competitors-'+ $index}}" ng-repeat='competitor in competitors'>
         <input type="text" ng-model="competitor.nameIn" name="nameIn" value="" placeholder="Competitors Name">
         <input type="text" ng-model="competitor.classIn" name="classIn" value="" placeholder="Classification">
@@ -44,8 +47,11 @@
         <input type="text" ng-model="competitor.sixProne" name="sixProne" value="" placeholder="600Y Prone">
         <input type="text" ng-model="competitor.sixX" name="name" value="" placeholder="600Y Prone X">
         <button class="remove" type="button" name="removeButton" ng-show="$last" ng-click="removeComp()">-</button>
+        <br>
+        <div class="inputField"></div>
       </fieldset>
-
+    </div>
+    <div class="container">
       <button type="button" class="btn btn-info" ng-click="addCompetitor()" name="addCompetitor">Add Competitor</button><br>
       <button type="button" class="btn btn-primary" ng-click="complete(competitors, dateIn, locationIn, stateIn)" name="completeButton">Complete</button>
       <button type="button" class="btn btn-success" ng-click="updateComp()" name="updateButton">Update</button>
@@ -54,7 +60,9 @@
         <button ng-click="getCompetitionResults(compDay)" class="btn btn-primary">Get Competition</button>
       </form>
     </div>
+    </div>
       <div ng-show='bottomHalf' class='bottom'>
+        <div class="container">
       <table>
         <tr ng-repeat="all in allTheComp.comps">
           <th scope="row" ng-if="$last">Date:</th>
@@ -71,18 +79,18 @@
       </table>
       <table>
         <tr>
-          <th>Name</th>
-          <th>Class</th>
-          <th>200Y Standing</th>
-          <th>X</th>
-          <th>200Y Sitting</th>
-          <th>X</th>
-          <th>300Y Prone</th>
-          <th>X</th>
-          <th>600Y Prone</th>
-          <th>X</th>
-          <th>Total</th>
-          <th>Total X</th>
+          <th width="10%">Name</th>
+          <th width="10%">Class</th>
+          <th width="10%">200Y Standing</th>
+          <th width="3%">X</th>
+          <th width="10%">200Y Sitting</th>
+          <th width="3%">X</th>
+          <th width="10%">300Y Prone</th>
+          <th width="3%">X</th>
+          <th width="10%">600Y Prone</th>
+          <th width="3%">X</th>
+          <th width="5%">Total</th>
+          <th width="5%">Total X</th>
         </tr>
         <tr ng-repeat="all in allTheComp.comps | limitTo: $index">
           <td>{{all.nameIn}}</td>
@@ -99,9 +107,12 @@
           <td>{{all.twoXS + all.twoXs + all.threeX + all.sixX}}</td>
         </tr>
       </table>
-      <button ng-click="editCompetition()" name="editButton">Edit</button>
-      <a href="./"><button type="button" name="newCompButton">New Competition</button></a>
-      <button type="button" name="downloadButton">Download</button>
+      </div>
+      <div class="container">
+      <button ng-click="editCompetition()" class="btn btn-warning" name="editButton">Edit</button>
+      <a href="./"><button type="button" class="btn btn-success" name="newCompButton">New Competition</button></a>
+      <button type="button" class="btn btn-primary" name="downloadButton">Download</button>
+      </div>
         </div>
       </div>
   </body>

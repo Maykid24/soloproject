@@ -2,11 +2,6 @@ body {
   background-image: url('OTCpicture.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: opacity: .2;
-}
-
-img {
-  opacity: .5;
 }
 
 h1 {
@@ -15,7 +10,16 @@ h1 {
 }
 
 button {
-  margin-top: 10%;
-  margin-bottom: 10%;
+  margin-top: 7%;
+  margin-bottom: 7%;
   margin-left: 45%;
+}
+
+.headText {
+  background-image: url('wood.jpg');
+  background-position: center;
+  margin-left: 40%;
+  margin-right: 40%;
+  text-align: center;
+  color: black;
 }

@@ -1,3 +1,25 @@
 button {
   margin-top: 0.25%;
 }
+
+.top {
+  margin-top: 5%;
+}
+
+.bottom {
+  margin-top: 5%;
+}
+
+th, td {
+  text-align: center;
+  padding: 10px;
+}
+
+table, td, th {
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.inputField {
+  padding-top: 10px;
+}
