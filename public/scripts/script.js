@@ -48,13 +48,15 @@ var Competitor = function () {
 
   };//End of complete function
 
-  $scope.updateComp = function () {
-    $scope.topHalf = !$scope.topHalf;
-    $scope.bottomHalf = !$scope.bottomHalf;
+
+////////////////////////////////////////////////////////////////////////////////////////
+  // $scope.updateComp = function () {
+  //   $scope.topHalf = !$scope.topHalf;
+  //   $scope.bottomHalf = !$scope.bottomHalf;
 
     ////////////// ------------- MIGHT NEED FOR FUTURE AND MIGHT NOT BUT KEEP!!!!! --------////////////
-    //loop through factory to find competitor
-    // var nameToFind = finalFactory.allCompForDay.comps[0].nameIn;
+    // loop through factory to find competitor
+    // var nameToFind = finalFactory.allCompForDay[0].nameIn;
     // $scope.foundId = finalFactory.allCompForDay.comps[0]._id;
     // console.log('looking for scope name:', nameToFind );
     // for( var i=0; i< finalFactory.allCompForDay.comps.length; i++ ){
@@ -64,21 +66,24 @@ var Competitor = function () {
     // }
     // console.log('found ID for ' + nameToFind + ' as ' + $scope.foundId );
 
-    var updateToSend = {
-      foundId: $scope.foundId,
-      competitors: $scope.competitors,
-      date: $scope.dateIn,
-      location: $scope.locationIn,
-      state: $scope.stateIn
-    };
+  //   var updateToSend = {
+  //     foundId: $scope.foundId,
+  //     competitors: $scope.competitors,
+  //     date: $scope.dateIn,
+  //     location: $scope.locationIn,
+  //     state: $scope.stateIn
+  //   };
+  //
+  //   $http({
+  //     method: 'POST',
+  //     url: '/compUpdate',
+  //     data: updateToSend,
+  //     headers: { 'Content-Type': 'application/json' }
+  //   });//end of $http call
+  // };//End of update comp function
+/////////////////////////////////////////////////////////////////////////////////////////////
 
-    $http({
-      method: 'POST',
-      url: '/compUpdate',
-      data: updateToSend,
-      headers: { 'Content-Type': 'application/json' }
-    });//end of $http call
-  };//End of update comp function
+
 
   // / -Edit function needs to be completed...
   $scope.editCompetition = function () {

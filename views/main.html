@@ -6,15 +6,17 @@
     <script src="scripts/script.js" charset="utf-8"></script>
     <script src="scripts/factories.js" charset="utf-8"></script>
     <link rel="stylesheet" href="vendors/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="scripts/mainPage.css" media="screen" title="no title" charset="utf-8">
     <title>Main Page</title>
   </head>
   <body>
     <div ng-controller="competitorOverall">
-      <div ng-show='topHalf'>
+      <div ng-show='topHalf' class='top'>
     <input type="text" ng-model="dateIn" name="dateIn" placeholder="MM/DD/YEAR"><br>
     <input type="text" ng-model="locationIn" name="locationIn" value="" placeholder="Location (City)"><br>
     <input type="text" ng-model="stateIn" name="stateIn" value="" placeholder="State"><br>
     <br>
+    <div class="container">
       <table>
         <tr>
           <th>Name</th>
@@ -29,6 +31,7 @@
           <th>X</th>
         </tr>
       </table>
+    </div>
       <fieldset id="{{'competitors-'+ $index}}" ng-repeat='competitor in competitors'>
         <input type="text" ng-model="competitor.nameIn" name="nameIn" value="" placeholder="Competitors Name">
         <input type="text" ng-model="competitor.classIn" name="classIn" value="" placeholder="Classification">
@@ -43,15 +46,15 @@
         <button class="remove" type="button" name="removeButton" ng-show="$last" ng-click="removeComp()">-</button>
       </fieldset>
 
-      <button type="button" ng-click="addCompetitor()" name="addCompetitor">Add Competitor</button><br>
-      <button type="button" ng-click="complete(competitors, dateIn, locationIn, stateIn)" name="completeButton">Complete</button>
-      <button type="button" ng-click="updateComp()" name="updateButton">Update</button>
+      <button type="button" class="btn btn-info" ng-click="addCompetitor()" name="addCompetitor">Add Competitor</button><br>
+      <button type="button" class="btn btn-primary" ng-click="complete(competitors, dateIn, locationIn, stateIn)" name="completeButton">Complete</button>
+      <button type="button" class="btn btn-success" ng-click="updateComp()" name="updateButton">Update</button>
       <form>
         <input type="text" ng-model="compDay.date" name="compDay" placeholder="Date MM/DD/YRYR">
-        <button ng-click="getCompetitionResults(compDay)">Get Competition</button>
+        <button ng-click="getCompetitionResults(compDay)" class="btn btn-primary">Get Competition</button>
       </form>
     </div>
-      <div ng-show='bottomHalf'>
+      <div ng-show='bottomHalf' class='bottom'>
       <table>
         <tr ng-repeat="all in allTheComp.comps">
           <th scope="row" ng-if="$last">Date:</th>
