@@ -94,29 +94,27 @@ app.post('/compPost', function (req, res) {
 });//End of compPost
 
 
-//////////////////////////////////////////////////////////////////////////////////////
-// app.post('/compUpdate', function (req, res) {
-//   console.log( 'LOOK -----------------> compUpdate req.body:', req.body );
+// app.put('/compUpdate', function (req, res) {
+//   console.log('------------------------------> Recieved compUpdate req.body: ', req.body);
+//   console.log('req.body.competitor: ', req.body.competitors);
+//   console.log('date hopefully..', req.body.date);
+//   console.log('location...', req.body.location);
+//   console.log('state...', req.body.state);
+//   console.log('comp ID hopefully.............', req.body.foundId);
 //
-//     console.log( 'req.body.foundId:', req.body.foundId );
-//     console.log( 'req.body.competitors.length:', req.body.competitors.length );
 //
-//     for( var i=0; i< req.body.competitors.length; i++ ){
-//       console.log( req.body.competitors );
-//         updateRecord( req.body.foundId, req.body.competitors[i] );
-//     }
-// });//end of comp Update function
+//   var comp1 = req.body.foundId[0];
+//     var comp2 = req.body.foundId[1];
+//     console.log(comp1, comp2);
 //
-// function updateRecord( id, competitor ){
-//   ourOTC.findByIdAndUpdate( {_id : id }, { $set: competitor }, function (err, result) {
+//   ourOTC.findByIdAndUpdate( {_id: req.body.foundId}, {$set: req.body.competitor}, function (err, result) {
 //     if(err){
 //       console.log(err);
-//     }else{
-//       console.log( "RESULT " + i + ": " + result );
+//     }else {
+//       console.log('result: ', result);
 //     }
-//   }); // end findyBy
-// } // end updateRecord
-//////////////////////////////////////////////////////////////////////////////////////
+//   });//end of findByIdAndUpdate
+// });//app post of compUpdate function
 
 
 

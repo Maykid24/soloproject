@@ -49,39 +49,33 @@ var Competitor = function () {
   };//End of complete function
 
 
-////////////////////////////////////////////////////////////////////////////////////////
-  // $scope.updateComp = function () {
-  //   $scope.topHalf = !$scope.topHalf;
-  //   $scope.bottomHalf = !$scope.bottomHalf;
-
-    ////////////// ------------- MIGHT NEED FOR FUTURE AND MIGHT NOT BUT KEEP!!!!! --------////////////
-    // loop through factory to find competitor
-    // var nameToFind = finalFactory.allCompForDay[0].nameIn;
-    // $scope.foundId = finalFactory.allCompForDay.comps[0]._id;
-    // console.log('looking for scope name:', nameToFind );
-    // for( var i=0; i< finalFactory.allCompForDay.comps.length; i++ ){
-    //   if( finalFactory.allCompForDay.comps.nameIn == $scope.nameIn ){
-    //     $scope.foundId = finalFactory.allCompForDay.comps[i]._id;
-    //   }
-    // }
-    // console.log('found ID for ' + nameToFind + ' as ' + $scope.foundId );
-
-  //   var updateToSend = {
-  //     foundId: $scope.foundId,
-  //     competitors: $scope.competitors,
-  //     date: $scope.dateIn,
-  //     location: $scope.locationIn,
-  //     state: $scope.stateIn
-  //   };
-  //
-  //   $http({
-  //     method: 'POST',
-  //     url: '/compUpdate',
-  //     data: updateToSend,
-  //     headers: { 'Content-Type': 'application/json' }
-  //   });//end of $http call
-  // };//End of update comp function
-/////////////////////////////////////////////////////////////////////////////////////////////
+// $scope.updateComp = function () {
+//   $scope.topHalf = !$scope.topHalf;
+//   $scope.bottomHalf = !$scope.bottomHalf;
+//
+//   // var idToFind = finalFactory.allCompForDay.comps[i]._id;
+//   for(var i=0; i<finalFactory.allCompForDay.comps.length; i++){
+//     $scope.foundComp = finalFactory.allCompForDay.comps[i]._id;
+//   }
+//   console.log('ID to find: ', $scope.foundComp);
+//
+//   var updateToSend = {
+//     foundId: $scope.foundComp,
+//     competitors: $scope.competitors,
+//     date: $scope.date,
+//     location: $scope.locationIn,
+//     state: $scope.stateIn
+//   };//end of updateToSend
+//
+//   console.log('update to send', updateToSend);
+//
+//   $http({
+//     method: 'PUT',
+//     url: '/compUpdate',
+//     data: updateToSend,
+//     headers: { 'Content-Type': 'application/json' }
+//   });//End of http call
+// };//End of update comp function
 
 
 

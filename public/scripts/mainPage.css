@@ -1,3 +1,8 @@
+body {
+  /*background-image: url('target.jpg');*/
+  background-size: cover;
+}
+
 button {
   margin-top: 0.25%;
 }
@@ -18,6 +23,8 @@ th, td {
 table, td, th {
   border: 1px solid #ddd;
   text-align: center;
+  color: black;
+  text: bold;
 }
 
 .inputField {
