@@ -69,9 +69,5 @@ var Competitor = function () {
     // return $http.post('/saveUser', data);
   };
 
-  $scope.removeUser = function(index) {
-    $scope.users.splice(index, 1);
-  };
-
   $scope.allTheComp = finalFactory.allCompForDay;
 }]);//End of myApp controller

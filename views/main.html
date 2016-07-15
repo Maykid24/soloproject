@@ -80,19 +80,19 @@
       </table>
       <table>
         <tr>
-          <th width="10%">Name</th>
-          <th width="10%">Class</th>
-          <th width="10%">200Y Standing</th>
+          <th width="7%">Name</th>
+          <th width="7%">Class</th>
+          <th width="7%">200Y Standing</th>
           <th width="3%">X</th>
-          <th width="10%">200Y Sitting</th>
+          <th width="7%">200Y Sitting</th>
           <th width="3%">X</th>
-          <th width="10%">300Y Prone</th>
+          <th width="7%">300Y Prone</th>
           <th width="3%">X</th>
-          <th width="10%">600Y Prone</th>
+          <th width="7%">600Y Prone</th>
           <th width="3%">X</th>
           <th width="5%">Total</th>
           <th width="5%">Total X</th>
-          <th>Edit</th>
+          <th width="4%">Edit</th>
         </tr>
         <tr ng-repeat="all in allTheComp.comps | limitTo: $index">
           <td>
@@ -147,8 +147,7 @@
               </button>
             </form>
             <div class="buttons" ng-show="!rowform.$visible">
-              <button class="btn btn-primary" ng-click="rowform.$show()">edit</button>
-              <button class="btn btn-danger" ng-click="removeUser($index)">del</button>
+              <button class="btn btn-primary" ng-click="rowform.$show()">Edit</button>
             </div>
           </td>
         </tr>
