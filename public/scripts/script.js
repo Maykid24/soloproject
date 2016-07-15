@@ -22,6 +22,10 @@ var Competitor = function () {
 
 };
 
+  app.run(function(editableOptions) {
+    editableOptions.theme = 'bs3';
+  });
+
   $scope.addCompetitor = function () {
     event.preventDefault();
     $scope.competitors.push(new Competitor());
