@@ -22,9 +22,6 @@ var Competitor = function () {
 
 };
 
-  app.run(function(editableOptions) {
-    editableOptions.theme = 'bs3';
-  });
 
   $scope.addCompetitor = function () {
     event.preventDefault();
@@ -52,49 +49,6 @@ var Competitor = function () {
 
   };//End of complete function
 
-
-////////////////////////////////////////////////////////////////////////////////////////
-  // $scope.updateComp = function () {
-  //   $scope.topHalf = !$scope.topHalf;
-  //   $scope.bottomHalf = !$scope.bottomHalf;
-
-    ////////////// ------------- MIGHT NEED FOR FUTURE AND MIGHT NOT BUT KEEP!!!!! --------////////////
-    // loop through factory to find competitor
-    // var nameToFind = finalFactory.allCompForDay[0].nameIn;
-    // $scope.foundId = finalFactory.allCompForDay.comps[0]._id;
-    // console.log('looking for scope name:', nameToFind );
-    // for( var i=0; i< finalFactory.allCompForDay.comps.length; i++ ){
-    //   if( finalFactory.allCompForDay.comps.nameIn == $scope.nameIn ){
-    //     $scope.foundId = finalFactory.allCompForDay.comps[i]._id;
-    //   }
-    // }
-    // console.log('found ID for ' + nameToFind + ' as ' + $scope.foundId );
-
-  //   var updateToSend = {
-  //     foundId: $scope.foundId,
-  //     competitors: $scope.competitors,
-  //     date: $scope.dateIn,
-  //     location: $scope.locationIn,
-  //     state: $scope.stateIn
-  //   };
-  //
-  //   $http({
-  //     method: 'POST',
-  //     url: '/compUpdate',
-  //     data: updateToSend,
-  //     headers: { 'Content-Type': 'application/json' }
-  //   });//end of $http call
-  // };//End of update comp function
-/////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-  // / -Edit function needs to be completed...
-  $scope.editCompetition = function () {
-    $scope.topHalf = !$scope.topHalf;
-    $scope.bottomHalf = !$scope.bottomHalf;
-  };//end of edit competition function
-
   $scope.getCompetitionResults = function(compDay){
     console.log('compDay', compDay);
     $scope.bottomHalf = !$scope.bottomHalf;
@@ -104,6 +58,20 @@ var Competitor = function () {
     console.log('logging out $scope.twoStanding', compDay);
 
   };//End of get competition results function
+
+  $scope.scoreComp = function () {
+    console.log('testing testy test: ', $scope.allTheComp);
+  };//End of scoreComp function
+
+  $scope.saveComp = function(data, id) {
+    //$scope.Comp not updated yet
+    angular.extend(data, {id: id});
+    // return $http.post('/saveUser', data);
+  };
+
+  $scope.removeUser = function(index) {
+    $scope.users.splice(index, 1);
+  };
 
   $scope.allTheComp = finalFactory.allCompForDay;
 }]);//End of myApp controller
