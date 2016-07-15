@@ -94,40 +94,6 @@ app.post('/compPost', function (req, res) {
 });//End of compPost
 
 
-<<<<<<< HEAD
-// app.put('/compUpdate', function (req, res) {
-//   console.log('------------------------------> Recieved compUpdate req.body: ', req.body);
-//   console.log('req.body.competitor: ', req.body.competitors);
-//   console.log('date hopefully..', req.body.date);
-//   console.log('location...', req.body.location);
-//   console.log('state...', req.body.state);
-//   console.log('comp ID hopefully.............', req.body.foundId);
-=======
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////
-// app.post('/compUpdate', function (req, res) {
-//   console.log( 'LOOK -----------------> compUpdate req.body:', req.body );
->>>>>>> updateBlah
-//
-//
-//   var comp1 = req.body.foundId[0];
-//     var comp2 = req.body.foundId[1];
-//     console.log(comp1, comp2);
-//
-//   ourOTC.findByIdAndUpdate( {_id: req.body.foundId}, {$set: req.body.competitor}, function (err, result) {
-//     if(err){
-//       console.log(err);
-//     }else {
-//       console.log('result: ', result);
-//     }
-//   });//end of findByIdAndUpdate
-// });//app post of compUpdate function
-
-
-
 // spin up server
 app.listen( 8080, 'localhost', function( req, res ){
   console.log( 'listening on 8080' );
