@@ -2,6 +2,8 @@ body {
   background-image: url('target.jpg');
   background-image: url('target.jpg');
   background-size: cover;
+  width: 100%;
+  length: 100%;
 
 }
 
@@ -11,6 +13,10 @@ table {
 
 button {
   margin-top: 0.25%;
+}
+
+#bottom {
+  margin-left: 7%;
 }
 
 .top {
