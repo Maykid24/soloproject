@@ -5,8 +5,10 @@
     <script src="vendors/angular.min.js" charset="utf-8"></script>
     <script src="scripts/script.js" charset="utf-8"></script>
     <script src="scripts/factories.js" charset="utf-8"></script>
+    <script src="vendors/xeditable.min.js" charset="utf-8"></script>
     <link rel="stylesheet" href="vendors/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="scripts/mainPage.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="vendors/xeditable.min.css" media="screen" title="no title" charset="utf-8">
     <title>Main Page</title>
   </head>
   <body>
@@ -78,37 +80,80 @@
       </table>
       <table>
         <tr>
-          <th width="10%">Name</th>
-          <th width="10%">Class</th>
-          <th width="10%">200Y Standing</th>
+          <th width="7%">Name</th>
+          <th width="7%">Class</th>
+          <th width="7%">200Y Standing</th>
           <th width="3%">X</th>
-          <th width="10%">200Y Sitting</th>
+          <th width="7%">200Y Sitting</th>
           <th width="3%">X</th>
-          <th width="10%">300Y Prone</th>
+          <th width="7%">300Y Prone</th>
           <th width="3%">X</th>
-          <th width="10%">600Y Prone</th>
+          <th width="7%">600Y Prone</th>
           <th width="3%">X</th>
           <th width="5%">Total</th>
           <th width="5%">Total X</th>
+          <th width="4%">Edit</th>
         </tr>
         <tr ng-repeat="all in allTheComp.comps | limitTo: $index">
-          <td>{{all.nameIn}}</td>
-          <td>{{all.classIn}}</td>
-          <td>{{all.twoStanding}}</td>
-          <td>{{all.twoXS}}</td>
-          <td>{{all.twoSitting}}</td>
-          <td>{{all.twoXs}}</td>
-          <td>{{all.threeProne}}</td>
-          <td>{{all.threeX}}</td>
-          <td>{{all.sixProne}}</td>
-          <td>{{all.sixX}}</td>
+          <td>
+            <span editable-text="all.nameIn" e-name="name" e-form="rowform" e-required>
+            {{all.nameIn}}
+          </td>
+          <td>
+            <span editable-text="all.classIn" e-name="name" e-form="rowform" e-required>
+            {{all.classIn}}
+          </td>
+          <td>
+            <span editable-text="all.twoStanding" e-name="name" e-form="rowform" e-required>
+            {{all.twoStanding}}
+          </td>
+          <td>
+            <span editable-text="all.twoXS" e-name="name" e-form="rowform" e-required>
+            {{all.twoXS}}
+          </td>
+          <td>
+            <span editable-text="all.twoSitting" e-name="name" e-form="rowform" e-required>
+            {{all.twoSitting}}
+          </td>
+          <td>
+            <span editable-text="all.twoXs" e-name="name" e-form="rowform" e-required>
+            {{all.twoXs}}
+          </td>
+          <td>
+            <span editable-text="all.threeProne" e-name="name" e-form="rowform" e-required>
+            {{all.threeProne}}
+          </td>
+          <td>
+            <span editable-text="all.threeX" e-name="name" e-form="rowform" e-required>
+            {{all.threeX}}
+          </td>
+          <td>
+            <span editable-text="all.sixProne" e-name="name" e-form="rowform" e-required>
+            {{all.sixProne}}
+          </td>
+          <td>
+            <span editable-text="all.sixX" e-name="name" e-form="rowform" e-required>
+            {{all.sixX}}
+          </td>
           <td>{{(all.twoStanding + all.twoSitting + all.threeProne + all.sixProne)}}</td>
           <td>{{all.twoXS + all.twoXs + all.threeX + all.sixX}}</td>
+          <td>
+            <form editable-form name="rowform" onbeforesave="saveComp($data, all.id)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == all">
+              <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
+                save
+              </button>
+              <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default">
+                cancel
+              </button>
+            </form>
+            <div class="buttons" ng-show="!rowform.$visible">
+              <button class="btn btn-primary" ng-click="rowform.$show()">Edit</button>
+            </div>
+          </td>
         </tr>
       </table>
       </div>
       <div class="container">
-      <button ng-click="editCompetition()" class="btn btn-warning" name="editButton">Edit</button>
       <a href="./"><button type="button" class="btn btn-success" name="newCompButton">New Competition</button></a>
       <button type="button" class="btn btn-primary" name="downloadButton">Download</button>
       </div>

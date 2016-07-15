@@ -94,6 +94,7 @@ app.post('/compPost', function (req, res) {
 });//End of compPost
 
 
+<<<<<<< HEAD
 // app.put('/compUpdate', function (req, res) {
 //   console.log('------------------------------> Recieved compUpdate req.body: ', req.body);
 //   console.log('req.body.competitor: ', req.body.competitors);
@@ -101,6 +102,15 @@ app.post('/compPost', function (req, res) {
 //   console.log('location...', req.body.location);
 //   console.log('state...', req.body.state);
 //   console.log('comp ID hopefully.............', req.body.foundId);
+=======
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+// app.post('/compUpdate', function (req, res) {
+//   console.log( 'LOOK -----------------> compUpdate req.body:', req.body );
+>>>>>>> updateBlah
 //
 //
 //   var comp1 = req.body.foundId[0];
