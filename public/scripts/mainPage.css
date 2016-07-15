@@ -1,8 +1,5 @@
 body {
-<<<<<<< HEAD
-  /*background-image: url('target.jpg');*/
-  background-size: cover;
-=======
+  background-image: url('target.jpg');
   background-image: url('target.jpg');
   background-size: cover;
 
@@ -10,7 +7,6 @@ body {
 
 table {
   background-color: #f2f2f2;
->>>>>>> updateBlah
 }
 
 button {

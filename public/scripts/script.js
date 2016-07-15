@@ -49,37 +49,6 @@ var Competitor = function () {
 
   };//End of complete function
 
-<<<<<<< HEAD
-
-// $scope.updateComp = function () {
-//   $scope.topHalf = !$scope.topHalf;
-//   $scope.bottomHalf = !$scope.bottomHalf;
-//
-//   // var idToFind = finalFactory.allCompForDay.comps[i]._id;
-//   for(var i=0; i<finalFactory.allCompForDay.comps.length; i++){
-//     $scope.foundComp = finalFactory.allCompForDay.comps[i]._id;
-//   }
-//   console.log('ID to find: ', $scope.foundComp);
-//
-//   var updateToSend = {
-//     foundId: $scope.foundComp,
-//     competitors: $scope.competitors,
-//     date: $scope.date,
-//     location: $scope.locationIn,
-//     state: $scope.stateIn
-//   };//end of updateToSend
-//
-//   console.log('update to send', updateToSend);
-//
-//   $http({
-//     method: 'PUT',
-//     url: '/compUpdate',
-//     data: updateToSend,
-//     headers: { 'Content-Type': 'application/json' }
-//   });//End of http call
-// };//End of update comp function
-
-
 
   // / -Edit function needs to be completed...
   $scope.editCompetition = function () {
@@ -87,8 +56,6 @@ var Competitor = function () {
     $scope.bottomHalf = !$scope.bottomHalf;
   };//end of edit competition function
 
-=======
->>>>>>> updateBlah
   $scope.getCompetitionResults = function(compDay){
     console.log('compDay', compDay);
     $scope.bottomHalf = !$scope.bottomHalf;
