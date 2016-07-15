@@ -1,4 +1,4 @@
-var myApp=angular.module( 'myApp', [] );
+var myApp=angular.module( 'myApp', ['xeditable'] );
 
 myApp.controller('competitorOverall', ['$scope', '$http', '$location', '$window', 'FinalFactory', function ($scope, $http, $location, $window, FinalFactory) {
 var finalFactory = FinalFactory;
